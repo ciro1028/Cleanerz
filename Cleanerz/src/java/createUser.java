@@ -11,20 +11,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Business.*;
-import com.sun.corba.se.impl.orbutil.ObjectWriter;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.http.HttpSession;
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
 
 /**
  *
  * @author Ciro
  */
-@WebServlet(urlPatterns = {"/loginServlet"})
-public class loginServlet extends HttpServlet {
+@WebServlet(urlPatterns = {"/createUser"})
+public class createUser extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,41 +30,18 @@ public class loginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("application/json");
+        response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String usernameEntered = request.getParameter("username");
-            
-            //instantiate user
-            Users user = new Users();
-            user.selectDB(usernameEntered);
-            
-            //instatiate appointment
-            Appointments appointment = new Appointments();
-            appointment.selectAppointment(user.getID());
-            
-            HttpSession session = request.getSession();
-            session.setAttribute("user", user);
-            session.setAttribute("appointment", appointment);
-      
-            String password = user.getPassword();
-
-            if(password.equals(request.getParameter("password"))){
-                switch (user.getType()){
-                    case "a":
-                        response.sendRedirect("users/admin/adminHome.html");
-                        break;
-                    case "s":
-                        response.sendRedirect("users/associates/associatesHome.html");
-                        break;
-                    case "c":
-                        response.sendRedirect("users/clients/clientsHome.html");
-                        break;
-                    default:
-                        break;
-                }
-            } else {
-                response.sendRedirect("http://localhost:8080/Cleanerz/errorLogin.html");
-            }
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet createUser</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet createUser at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 
