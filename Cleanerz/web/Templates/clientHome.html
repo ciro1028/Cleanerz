@@ -1,0 +1,70 @@
+<div class="rightwrapper">
+    <div class="wrapboxout">
+        <div class="details">
+            <div class="detailstop">
+                <h4> Hi {{ user.firstName }}, </h4>
+                <h5> Your next appointment is on: </h5>
+                <h5> {{ appointment.date }} at {{ appointment.time }} </h5>
+
+            </div>
+            <div class="detailsmid">
+                <h5> </h5>
+            </div>
+            <div class="detailsbottom">
+                <input type="button" name="cancelbtn" value="Cancel Appointment">
+            </div>
+        </div>
+
+        <div class="cleaner">
+            Your Cleaner
+            <img src="images/cleaner.jpg" alt="Your Cleaner"> Name of Cleaner
+        </div>
+
+
+        <form class="extras" action="" method="post">
+
+            <div class="extrastop">
+                Add extras for this appointment.
+            </div>
+            <div class="extrasleft">
+                <div>
+                    <input type="checkbox" name="extras" value="refrigerator"> refrigerator<br>
+                </div>
+                <div>
+                    <input type="checkbox" name="extras" value="dishes"> dishes<br>
+                </div>
+                <div>
+                    <input type="checkbox" name="extras" value="oven"> oven<br>
+                </div>
+                <div>
+                    <input type="checkbox" name="extras" value="baseboard"> baseboard
+                </div>
+            </div>
+
+            <div class="extrascenter">
+                <div>
+                    <input type="checkbox" name="extras" value="windows"> windows<br>
+                </div>
+                <div>
+                    <input type="checkbox" name="extras" value="doors"> doors<br>
+                </div>
+                <div>
+                    <input type="checkbox" name="extras" value="blinds"> blinds<br>
+                </div>
+                <div>
+                    <input type="checkbox" name="extras" value="other"> other
+                </div>
+            </div>
+
+            <div class="extrasright">
+                <div>
+                    <textarea name="comment" rows="7" cols="40" placeholder="Add recommendations or comments."></textarea>
+                </div>
+                <div>
+                    <input class="submitbutton" type="button" name="submit" value="Submit">
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
